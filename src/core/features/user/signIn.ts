@@ -1,12 +1,13 @@
-import {createSelector, PayloadAction} from '@reduxjs/toolkit';
-import {from, of} from 'rxjs';
-import {catchError, filter, map, mergeMap} from 'rxjs/operators';
-import {createReduxSlice} from 'core/redux/reduxCommon';
-import {RootState} from 'core/redux/rootReducer';
-import {request} from 'core/network/RestAPI';
+import {createSelector} from '@reduxjs/toolkit';
 import Config from 'core/config/config';
 import User from 'core/models/user/User';
+import {request} from 'core/network/RestAPI';
 import {transformClass} from 'core/redux/classTransformer';
+import {createEpic} from 'core/redux/epicCommon';
+import {createReduxSlice} from 'core/redux/reduxCommon';
+import {RootState} from 'core/redux/rootReducer';
+
+const URL = `${Config.baseUrl}/signIn`;
 
 export interface SignInCredential {
   username: string;
@@ -15,23 +16,14 @@ export interface SignInCredential {
 
 export const signInSlice = createReduxSlice<SignInCredential>('signIn');
 
-export const {request: signIn} = signInSlice.actions;
+export const signIn = signInSlice.actions.request;
 
-export const signInsEpic = (action$: any) => {
-  return action$.pipe(
-    filter(signIn.match),
-    mergeMap((action: PayloadAction<SignInCredential>) =>
-      from(request(URL, 'post', action.payload)).pipe(
-        map(signInSlice.actions.success),
-        catchError(error => of(signInSlice.actions.failure(error))),
-      ),
-    ),
+export const signInsEpic = (action$: any) =>
+  createEpic<SignInCredential>(action$, signInSlice, (payload: SignInCredential) =>
+    request(URL, 'post', payload),
   );
-};
 
 export const signInSelector = createSelector(
   (state: RootState) => state.user.signIn,
   item => transformClass(item, User),
 );
-
-const URL = `${Config.baseUrl}/signIn`;
