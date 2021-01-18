@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'AntDesign';
+  src: local('AntDesign'), url(./fonts/AntDesign.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Entypo';
+  src: local('Entypo'), url(./fonts/Entypo.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'EvilIcons';
+  src: local('EvilIcons'), url(./fonts/EvilIcons.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Feather';
+  src: local('Feather'), url(./fonts/Feather.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'FontAwesome';
+  src: local('FontAwesome'), url(./fonts/FontAwesome.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'FontAwesome5_Brands';
+  src: local('FontAwesome5_Brands'), url(./fonts/FontAwesome5_Brands.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'FontAwesome5_Regular';
+  src: local('FontAwesome5_Regular'), url(./fonts/FontAwesome5_Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'FontAwesome5_Solid';
+  src: local('FontAwesome5_Solid'), url(./fonts/FontAwesome5_Solid.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Fontisto';
+  src: local('Fontisto'), url(./fonts/Fontisto.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Foundation';
+  src: local('Foundation'), url(./fonts/Foundation.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Ionicons';
+  src: local('Ionicons'), url(./fonts/Ionicons.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'MaterialCommunityIcons';
+  src: local('MaterialCommunityIcons'), url(./fonts/MaterialCommunityIcons.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'MaterialIcons';
+  src: local('MaterialIcons'), url(./fonts/MaterialIcons.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Octicons';
+  src: local('Octicons'), url(./fonts/Octicons.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'SimpleLineIcons';
+  src: local('SimpleLineIcons'), url(./fonts/SimpleLineIcons.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Zocial';
+  src: local('Zocial'), url(./fonts/Zocial.ttf) format('truetype');
+}
