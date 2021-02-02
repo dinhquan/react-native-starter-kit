@@ -1,5 +1,4 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import NetError from '../network/NetError';
 
 export enum ReduxStatus {
   None = 'none',
@@ -7,12 +6,18 @@ export enum ReduxStatus {
   Done = 'done',
 }
 
+interface Error {
+  status?: number;
+  code?: string;
+  message?: string;
+}
+
 export interface GenericState<T> {
   isFetching: boolean;
   status: ReduxStatus;
   data?: T;
   params?: any;
-  error?: NetError;
+  error?: Error;
   actionType: string;
   success: boolean;
 }

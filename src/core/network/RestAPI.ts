@@ -1,9 +1,13 @@
 import Axios, {AxiosRequestConfig, AxiosError, AxiosResponse} from 'axios';
 import {plainToClass} from 'class-transformer';
 import {ClassType} from 'class-transformer/ClassTransformer';
-import NetError from './NetError';
 
 export type HTTPMethod = 'get' | 'post' | 'put' | 'delete';
+
+interface RestError {
+  message?: string;
+  status?: number;
+}
 
 const timeOut = 60000;
 const headers = {
@@ -91,7 +95,7 @@ async function requestTransformArray_<T>(
 
 function handleError(error: AxiosError) {
   interceptResponseFailure(error);
-  const err = new NetError(error?.response?.status || 200, error?.response?.data?.message || '');
+  const err: RestError = {status: error?.response?.status, message: error?.response?.data?.message};
   return Promise.reject(err);
 }
 

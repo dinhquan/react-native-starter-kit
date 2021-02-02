@@ -15,33 +15,37 @@ import UserStack from './UserStack';
 
 function RootView() {
   const Tab = createBottomTabNavigator();
+  const options = tabItemOptions();
+
   return (
     <NavigationContainer ref={navigationRef}>
-      <Tab.Navigator tabBarOptions={TabBarOptions}>
-        <Tab.Screen name={Routes.PostStack} component={PostStack} options={TabItemOptions.post} />
-        <Tab.Screen name={Routes.UserStack} component={UserStack} options={TabItemOptions.user} />
+      <Tab.Navigator tabBarOptions={TAB_BAR_OPTIONS}>
+        <Tab.Screen name={Routes.PostStack} component={PostStack} options={options.post} />
+        <Tab.Screen name={Routes.UserStack} component={UserStack} options={options.user} />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
 
-const TabBarOptions: BottomTabBarOptions = {
+const TAB_BAR_OPTIONS: BottomTabBarOptions = {
   activeTintColor: Color.Theme,
 };
 
-const TabItemOptions: Record<string, BottomTabNavigationOptions> = {
-  post: {
-    tabBarLabel: t(T.post),
-    tabBarIcon: ({color, size}) => (
-      <FontIcon title="" font="MaterialIcons" color={color} size={24} />
-    ),
-  },
-  user: {
-    tabBarLabel: t(T.user),
-    tabBarIcon: ({color, size}) => (
-      <FontIcon title="" font="FontAwesome" color={color} size={24} />
-    ),
-  },
-};
+function tabItemOptions(): Record<string, BottomTabNavigationOptions> {
+  return {
+    post: {
+      tabBarLabel: t(T.post),
+      tabBarIcon: ({color, size}) => (
+        <FontIcon title="" font="MaterialIcons" color={color} size={24} />
+      ),
+    },
+    user: {
+      tabBarLabel: t(T.user),
+      tabBarIcon: ({color, size}) => (
+        <FontIcon title="" font="FontAwesome" color={color} size={24} />
+      ),
+    },
+  };
+}
 
 export default RootView;
