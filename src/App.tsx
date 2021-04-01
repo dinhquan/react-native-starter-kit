@@ -1,5 +1,5 @@
 import React from 'react';
-import RootView from 'ui/components/RootView';
+import RootView from './components/RootView';
 
 function App() {
   return <RootView />;
