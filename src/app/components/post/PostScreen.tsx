@@ -10,12 +10,7 @@ import BaseText from 'app/components/base/BaseText';
 import {PostStackParamList} from 'app/navigation/Params';
 import Colors from 'app/theme/Colors';
 
-interface Props {
-  route: RouteProp<PostStackParamList, 'Post'>;
-  navigation: StackNavigationProp<PostStackParamList, 'Post'>;
-}
-
-function PostScreen(props: Props) {
+function PostScreen() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPosts());
