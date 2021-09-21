@@ -8,10 +8,10 @@ import React from 'react';
 import FontIcon from 'app/components/base/FontIcon';
 import Color from 'app/theme/Color';
 import {t, T} from 'app/theme/Localization';
-import {navigationRef} from '../Navigator';
-import Routes from '../Routes';
-import PostStack from './PostStack';
-import UserStack from './UserStack';
+import {navigationRef} from '../navigation/Navigator';
+import Routes from '../navigation/Routes';
+import PostStack from './stacks/PostStack';
+import UserStack from './stacks/UserStack';
 
 function RootView() {
   const Tab = createBottomTabNavigator();

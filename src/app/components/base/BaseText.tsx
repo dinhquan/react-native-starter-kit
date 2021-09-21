@@ -1,11 +1,15 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text as RNText, TextProps} from 'react-native';
 
-function BaseText({children, ...rest}: any) {
+interface Props extends TextProps {
+  children?: any;
+}
+
+function BaseText({children, style, ...rest}: Props) {
   return (
-    <Text allowFontScaling={false} {...rest}>
+    <RNText style={style} allowFontScaling={false} {...rest}>
       {children}
-    </Text>
+    </RNText>
   );
 }
 
