@@ -6,7 +6,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
 import FontIcon from 'app/components/base/FontIcon';
-import Color from 'app/theme/Color';
+import Colors from 'app/theme/Colors';
 import {t, T} from 'app/theme/Localization';
 import {navigationRef} from '../navigation/Navigator';
 import Routes from '../navigation/Routes';
@@ -28,7 +28,7 @@ function RootView() {
 }
 
 const TAB_BAR_OPTIONS: BottomTabBarOptions = {
-  activeTintColor: Color.Theme,
+  activeTintColor: Colors.Theme,
 };
 
 function tabItemOptions(): Record<string, BottomTabNavigationOptions> {

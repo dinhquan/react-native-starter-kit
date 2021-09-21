@@ -1,6 +1,6 @@
 import {combineReducers} from '@reduxjs/toolkit';
-import {signInSlice} from 'core/features/user/signIn';
-import {getPostsSlice} from '../features/post/getPosts';
+import {signInSlice} from 'core/redux/user/signIn';
+import {getPostsSlice} from 'core/redux/post/getPosts';
 
 const postReducer = combineReducers({
   getPosts: getPostsSlice.reducer,

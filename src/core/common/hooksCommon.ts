@@ -1,4 +1,4 @@
-import {GenericState, ReduxStatus} from 'core/redux/reduxCommon';
+import {GenericState, ReduxStatus} from 'core/common/reduxCommon';
 import {useEffect, useRef} from 'react';
 
 export function usePrevious<T>(value: T) {

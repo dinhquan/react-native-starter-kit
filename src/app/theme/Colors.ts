@@ -1,4 +1,4 @@
-const Color = {
+const Colors = {
   Theme: '#A43017',
   Background: '#FFFFFF',
   DarkText: '#343434',
@@ -7,4 +7,4 @@ const Color = {
   Separator: '#F2F2F2',
 };
 
-export default Color;
+export default Colors;

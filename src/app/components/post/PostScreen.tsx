@@ -1,6 +1,6 @@
 import {RouteProp} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import {getPosts, getPostsSelector} from 'core/features/post/getPosts';
+import {getPosts, getPostsSelector} from 'core/redux/post/getPosts';
 import Post from 'core/models/post/Post';
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components/native';
 import BaseText from 'app/components/base/BaseText';
 import {PostStackParamList} from 'app/navigation/Params';
-import Color from 'app/theme/Color';
+import Colors from 'app/theme/Colors';
 
 interface Props {
   route: RouteProp<PostStackParamList, 'Post'>;
@@ -38,5 +38,5 @@ export default React.memo(PostScreen);
 
 const Container = styled.View`
   flex: 1;
-  background-color: ${Color.Background};
+  background-color: ${Colors.Background};
 `;

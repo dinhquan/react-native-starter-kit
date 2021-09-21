@@ -1,6 +1,6 @@
-import {signInsEpic} from 'core/features/user/signIn';
+import {signInsEpic} from 'core/redux/user/signIn';
 import {combineEpics} from 'redux-observable';
-import {getPostsEpic} from '../features/post/getPosts';
+import {getPostsEpic} from 'core/redux/post/getPosts';
 
 const postEpic = combineEpics(getPostsEpic);
 

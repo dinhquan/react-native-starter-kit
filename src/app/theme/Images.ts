@@ -1,7 +1,7 @@
 import FacebookIcon from './images/facebook.svg';
 
-const Image = {
+const Images = {
   FacebookIcon,
 };
 
-export default Image;
+export default Images;

@@ -1,4 +1,4 @@
-import {signIn, SignInCredential, signInSelector} from 'core/features/user/signIn';
+import {signIn, SignInCredential, signInSelector} from 'core/redux/user/signIn';
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components/native';
