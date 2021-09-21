@@ -4,11 +4,15 @@ import {persistStore, persistReducer} from 'redux-persist';
 import {configureStore} from '@reduxjs/toolkit';
 import {createLogger} from 'redux-logger';
 import rootEpic from './rootEpic';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Platform} from 'react-native';
 
-const createStore = (storage: any, isDev: boolean) => {
+const createStore = () => {
+  const isDev = Platform.OS === 'web' ? process.env.NODE_ENV === 'development' : __DEV__;
+
   const persistConfig = {
     key: 'root',
-    storage,
+    storage: AsyncStorage,
   };
 
   const middleware = [];

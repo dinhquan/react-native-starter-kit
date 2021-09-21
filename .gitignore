@@ -61,7 +61,7 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
-/ios/Podfile.lock
+# /ios/Podfile.lock
 
 .eslintcache
 /.pnp
@@ -83,7 +83,3 @@ buck-out/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-yarn.lock
-package-lock.json
-

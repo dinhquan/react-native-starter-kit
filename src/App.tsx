@@ -9,10 +9,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 import {Platform} from 'react-native';
 import {setUpLocalization} from './ui/theme/Localization';
 
-const {store, persistor} = createStore(
-  Platform.OS === 'web' ? storage : AsyncStorage,
-  Platform.OS === 'web' ? process.env.NODE_ENV === 'development' : __DEV__,
-);
+const {store, persistor} = createStore();
 
 function App() {
   useEffect(() => {
