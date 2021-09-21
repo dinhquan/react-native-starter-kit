@@ -1,13 +1,10 @@
 import React, {useEffect} from 'react';
 import 'reflect-metadata';
-import RootView from './ui/navigation/components/RootView';
-import storage from 'redux-persist/lib/storage';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import RootView from './app/navigation/components/RootView';
 import createStore from './core/redux/store';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
-import {Platform} from 'react-native';
-import {setUpLocalization} from './ui/theme/Localization';
+import {setUpLocalization} from './app/theme/Localization';
 
 const {store, persistor} = createStore();
 

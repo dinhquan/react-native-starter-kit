@@ -5,9 +5,9 @@ import {
 } from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import FontIcon from 'ui/components/base/FontIcon';
-import Color from 'ui/theme/Color';
-import {t, T} from 'ui/theme/Localization';
+import FontIcon from 'app/components/base/FontIcon';
+import Color from 'app/theme/Color';
+import {t, T} from 'app/theme/Localization';
 import {navigationRef} from '../Navigator';
 import Routes from '../Routes';
 import PostStack from './PostStack';

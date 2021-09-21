@@ -2,8 +2,8 @@ import {signIn, SignInCredential, signInSelector} from 'core/features/user/signI
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components/native';
-import BaseText from 'ui/components/base/BaseText';
-import {T, t} from 'ui/theme/Localization';
+import BaseText from 'app/components/base/BaseText';
+import {T, t} from 'app/theme/Localization';
 
 function UserScreen() {
   const dispatch = useDispatch();

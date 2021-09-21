@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Routes from '../Routes';
-import UserScreen from 'ui/screens/user/UserScreen';
+import UserScreen from 'app/screens/user/UserScreen';
 
 function UserStack() {
   const Stack = createStackNavigator();

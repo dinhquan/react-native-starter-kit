@@ -6,9 +6,9 @@ import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components/native';
-import BaseText from 'ui/components/base/BaseText';
-import {PostStackParamList} from 'ui/navigation/Params';
-import Color from 'ui/theme/Color';
+import BaseText from 'app/components/base/BaseText';
+import {PostStackParamList} from 'app/navigation/Params';
+import Color from 'app/theme/Color';
 
 interface Props {
   route: RouteProp<PostStackParamList, 'Post'>;
