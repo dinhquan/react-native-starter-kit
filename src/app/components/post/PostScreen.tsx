@@ -21,6 +21,7 @@ function PostScreen() {
 
   return (
     <Container>
+      <BaseText>Posts</BaseText>
       <FlatList data={posts} renderItem={renderItem} keyExtractor={item => item.id + ''} />
     </Container>
   );
