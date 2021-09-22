@@ -1,4 +1,5 @@
 import Axios, {AxiosRequestConfig, AxiosError, AxiosResponse} from 'axios';
+import {isMockEnabled, mockData} from './mock/mockConfig';
 
 export type HTTPMethod = 'get' | 'post' | 'put' | 'delete';
 
@@ -13,6 +14,10 @@ const headers = {
 };
 
 export async function request<T>(url: string, method: HTTPMethod, data?: unknown): Promise<T> {
+  if (isMockEnabled(url)) {
+    return mockData(url);
+  }
+
   const config: AxiosRequestConfig = {
     url: url,
     method: method,
