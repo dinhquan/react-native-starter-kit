@@ -7,8 +7,7 @@ import {fulfilled, initialState, rejected, pending} from 'core/common/reduxCommo
 import {RootState} from 'core/redux/rootReducer';
 
 export const getPosts = createAsyncThunk('posts/getPosts', async () => {
-  const response = await request(`${Config.baseUrl}/posts`, 'get');
-  return response;
+  return await request(`${Config.baseUrl}/posts`, 'get');
 });
 
 export const postsSlice = createSlice({

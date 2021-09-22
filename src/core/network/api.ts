@@ -5,7 +5,7 @@ export type HTTPMethod = 'get' | 'post' | 'put' | 'delete';
 
 interface RestError {
   message?: string;
-  status?: number;
+  code?: string;
 }
 
 const timeOut = 60000;
@@ -41,7 +41,9 @@ async function request_<T>(config: AxiosRequestConfig): Promise<T> {
 
 function handleError(error: AxiosError) {
   interceptResponseFailure(error);
-  const err: RestError = {status: error?.response?.status, message: error?.response?.data?.message};
+  const status = error?.response?.status ?? -1;
+  const message = error?.response?.data?.message ?? 'Network error';
+  const err: RestError = {code: status + '', message: message};
   return Promise.reject(err);
 }
 

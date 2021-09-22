@@ -27,11 +27,11 @@ export function mockData(url: string): Promise<any> {
   const path = pathFromUrl(url);
   let filteredMocks = mocks.filter(x => x.path === path);
   if (!filteredMocks.length) {
-    return Promise.reject({status: 404, message: 'Mock data not found'});
+    return Promise.reject({code: '404', message: 'Mock data not found'});
   }
   let mock = filteredMocks[0];
   if (!mock.data) {
-    return Promise.reject({status: 404, message: 'Mock data not found'});
+    return Promise.reject({code: '404', message: 'Mock data not found'});
   }
   return Promise.resolve(mock.data);
 }

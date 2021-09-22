@@ -55,7 +55,8 @@ export function fulfilled(state: GenericState<any>, action: PayloadAction<any>) 
 export function rejected(state: GenericState<any>, action: PayloadAction<any>) {
   state.status = ReduxStatus.Done;
   state.isFetching = false;
-  state.error = action.payload;
+  // @ts-ignore
+  state.error = action.error;
   state.success = false;
   state.actionType = action.type;
 }
