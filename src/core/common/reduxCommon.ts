@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {PayloadAction} from '@reduxjs/toolkit';
 
 export enum ReduxStatus {
   None = 'none',
@@ -22,7 +22,7 @@ export interface GenericState<T> {
   success: boolean;
 }
 
-function initialState<T>(data?: T): GenericState<T> {
+export function initialState<T>(data?: T): GenericState<T> {
   return {
     isFetching: false,
     params: undefined,
@@ -34,17 +34,7 @@ function initialState<T>(data?: T): GenericState<T> {
   };
 }
 
-function reset(state: GenericState<any>) {
-  state.status = ReduxStatus.None;
-  state.isFetching = false;
-  state.error = undefined;
-  state.success = false;
-  state.actionType = '';
-  state.data = undefined;
-  state.params = undefined;
-}
-
-function request(state: GenericState<any>, action: PayloadAction<any>) {
+export function pending(state: GenericState<any>, action: PayloadAction<any>) {
   state.status = ReduxStatus.Fetching;
   state.isFetching = true;
   state.params = action.payload;
@@ -53,7 +43,7 @@ function request(state: GenericState<any>, action: PayloadAction<any>) {
   state.actionType = action.type;
 }
 
-function success(state: GenericState<any>, action: PayloadAction<any>) {
+export function fulfilled(state: GenericState<any>, action: PayloadAction<any>) {
   state.status = ReduxStatus.Done;
   state.isFetching = false;
   state.data = action.payload;
@@ -62,25 +52,10 @@ function success(state: GenericState<any>, action: PayloadAction<any>) {
   state.actionType = action.type;
 }
 
-function failure(state: GenericState<any>, action: PayloadAction<any>) {
+export function rejected(state: GenericState<any>, action: PayloadAction<any>) {
   state.status = ReduxStatus.Done;
   state.isFetching = false;
   state.error = action.payload;
   state.success = false;
   state.actionType = action.type;
-}
-
-export function createReduxSlice<T>(name: string) {
-  return createSlice({
-    name: name,
-    initialState: initialState(),
-    reducers: {
-      request(state, action: PayloadAction<T>) {
-        request(state, action);
-      },
-      success,
-      failure,
-      reset,
-    },
-  });
 }

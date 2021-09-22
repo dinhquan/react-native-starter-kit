@@ -1,4 +1,4 @@
-import {signIn, SignInCredential, signInSelector} from 'core/redux/user/signIn';
+import {signIn, SignInCredential, userSelector} from 'core/redux/slices/userSlice';
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components/native';
@@ -13,7 +13,7 @@ function UserScreen() {
     dispatch(signIn(credential));
   }
 
-  const {data: user} = useSelector(signInSelector);
+  const {data: user} = useSelector(userSelector);
 
   return (
     <Container>

@@ -1,11 +1,10 @@
-import {createEpicMiddleware} from 'redux-observable';
 import rootReducer from './rootReducer';
 import {persistStore, persistReducer} from 'redux-persist';
 import {configureStore} from '@reduxjs/toolkit';
 import {createLogger} from 'redux-logger';
-import rootEpic from './rootEpic';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Platform} from 'react-native';
+import thunk from 'redux-thunk';
 
 const createStore = () => {
   const isDev = Platform.OS === 'web' ? process.env.NODE_ENV === 'development' : __DEV__;
@@ -16,8 +15,7 @@ const createStore = () => {
   };
 
   const middleware = [];
-  const epicMiddleware = createEpicMiddleware();
-  middleware.push(epicMiddleware);
+  middleware.push(thunk);
   if (isDev) {
     middleware.push(createLogger());
   }
@@ -29,8 +27,6 @@ const createStore = () => {
     devTools: isDev,
     middleware: middleware,
   });
-
-  epicMiddleware.run(rootEpic);
 
   const persistor = persistStore(store);
 

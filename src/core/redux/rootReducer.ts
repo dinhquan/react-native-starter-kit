@@ -1,18 +1,10 @@
 import {combineReducers} from '@reduxjs/toolkit';
-import {signInSlice} from 'core/redux/user/signIn';
-import {getPostsSlice} from 'core/redux/post/getPosts';
-
-const postReducer = combineReducers({
-  getPosts: getPostsSlice.reducer,
-});
-
-const userReducer = combineReducers({
-  signIn: signInSlice.reducer,
-});
+import {userSlice} from 'core/redux/slices/userSlice';
+import {postsSlice} from 'core/redux/slices/postsSlice';
 
 const rootReducer = combineReducers({
-  post: postReducer,
-  user: userReducer,
+  posts: postsSlice.reducer,
+  user: userSlice.reducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

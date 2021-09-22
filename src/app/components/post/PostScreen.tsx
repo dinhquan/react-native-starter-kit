@@ -1,7 +1,7 @@
 import BaseText from 'app/components/base/BaseText';
 import Colors from 'app/theme/Colors';
 import Post from 'core/models/post/Post';
-import {getPosts, getPostsSelector} from 'core/redux/post/getPosts';
+import {getPosts, postsSelector} from 'core/redux/slices/postsSlice';
 import React, {useEffect} from 'react';
 import {FlatList} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
@@ -13,7 +13,7 @@ function PostScreen() {
     dispatch(getPosts());
   }, []);
 
-  const {data: posts} = useSelector(getPostsSelector);
+  const {data: posts} = useSelector(postsSelector);
 
   function renderItem({item: post}: {item: Post}) {
     return <BaseText>{post.name}</BaseText>;
