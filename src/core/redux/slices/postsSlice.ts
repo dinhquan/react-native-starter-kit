@@ -1,13 +1,12 @@
 import {createAsyncThunk, createSelector, createSlice} from '@reduxjs/toolkit';
-import Config from 'core/redux/config';
 import Post from 'core/models/post/Post';
-import {request} from 'core/network/api';
 import {transformClassesFromExist} from 'core/common/classTransformer';
 import {fulfilled, initialState, rejected, pending} from 'core/common/reduxCommon';
 import {RootState} from 'core/redux/rootReducer';
+import postService from 'core/network/services/postService';
 
 export const getPosts = createAsyncThunk('posts/getPosts', async () => {
-  return await request(`${Config.baseUrl}/posts`, 'get');
+  return await postService.getPosts();
 });
 
 export const postsSlice = createSlice({

@@ -1,8 +1,8 @@
 import usePostScreen from 'app/components/post/usePostScreen';
 import {Provider} from 'react-redux';
-import {mockUseDispatch} from '../__helpers/mockHooks';
+import {mockUseDispatch} from '../utils/mockHooks';
 import {renderHook} from '@testing-library/react-hooks';
-import createMockStore from '../__helpers/mockStore';
+import createMockStore from '../utils/mockStore';
 import React from 'react';
 
 function render() {

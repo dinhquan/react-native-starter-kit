@@ -2,7 +2,7 @@ import React from 'react';
 import {render, waitFor} from '@testing-library/react-native';
 import PostScreen from 'app/components/post/PostScreen';
 import * as usePostScreen from 'app/components/post/usePostScreen';
-import {mockState} from '../__helpers/mockStore';
+import {mockState} from '../utils/mockStore';
 import Post from 'core/models/post/Post';
 
 function renderComponent() {

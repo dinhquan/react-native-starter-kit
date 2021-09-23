@@ -1,9 +1,10 @@
-import {signIn, SignInCredential, userSelector} from 'core/redux/slices/userSlice';
+import {signIn, userSelector} from 'core/redux/slices/userSlice';
 import React from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components/native';
 import BaseText from 'app/components/base/BaseText';
 import {T, t} from 'app/theme/Localization';
+import {SignInCredential} from 'core/network/services/userService';
 
 function UserScreen() {
   const dispatch = useDispatch();

@@ -1,18 +1,12 @@
 import {createAsyncThunk, createSelector, createSlice} from '@reduxjs/toolkit';
-import Config from 'core/redux/config';
-import {request} from 'core/network/api';
 import {transformClassFromExist} from 'core/common/classTransformer';
 import {fulfilled, initialState, rejected, pending} from 'core/common/reduxCommon';
 import {RootState} from 'core/redux/rootReducer';
 import User from 'core/models/user/User';
-
-export interface SignInCredential {
-  username: string;
-  password: string;
-}
+import userService, {SignInCredential} from 'core/network/services/userService';
 
 export const signIn = createAsyncThunk('user/signIn', async (credential: SignInCredential) => {
-  return await request(`${Config.baseUrl}/signIn`, 'post', credential);
+  return await userService.signIn(credential);
 });
 
 export const userSlice = createSlice({

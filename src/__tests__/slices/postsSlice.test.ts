@@ -1,6 +1,6 @@
 import {initialState} from 'core/common/reduxCommon';
 import {getPosts, postsSlice} from 'core/redux/slices/postsSlice';
-import createMockingStore from '../__helpers/mockStore';
+import createMockingStore from '../utils/mockStore';
 
 test('should return initial value', () => {
   expect(postsSlice.reducer(undefined, {type: undefined})).toEqual(initialState());
