@@ -1,21 +1,21 @@
-import {initialState} from 'core/common/reduxCommon';
-import {getPosts, postsSlice} from 'core/redux/slices/postsSlice';
-import createMockingStore from '../utils/mockStore';
+import {getPosts} from 'core/redux/slices/postsSlice';
+import postService from 'core/network/services/postService';
+import {createTestStore} from '../utils/testUtils';
+import mockData from '../utils/mockData';
 
-test('should return initial value', () => {
-  expect(postsSlice.reducer(undefined, {type: undefined})).toEqual(initialState());
-});
+describe('Tests for postsSlice', () => {
+  beforeAll(() => {
+    jest.spyOn(postService, 'getPosts').mockReturnValue(Promise.resolve(mockData.postsWithLength2));
+  });
 
-test('getPosts', async () => {
-  const store = createMockingStore();
-  const posts = [
-    {
-      id: 1,
-      name: 'Title 1',
-      description: 'Description 1',
-    },
-  ];
-  await store.dispatch(getPosts());
-  const state = store.getState();
-  expect(state.posts.data).toBeTruthy();
+  test('getPosts should store correct value', async () => {
+    const store = createTestStore();
+    await store.dispatch(getPosts());
+    const posts = store.getState().posts.data;
+    expect(posts).toEqual(mockData.postsWithLength2);
+  });
+
+  afterAll(() => {
+    jest.clearAllMocks();
+  });
 });

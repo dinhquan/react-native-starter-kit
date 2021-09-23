@@ -51,16 +51,6 @@ export function transformClassesFromExist<T>(
   };
 }
 
-export async function createAsyncRequest<T, K>(
-  payload: T,
-  cls: ClassType<K>,
-  input: (payload: T) => Promise<any>,
-): Promise<K | undefined> {
-  const result = await input(payload);
-  const model = plainToClass(cls, result);
-  return model;
-}
-
 export function jsonToClasses<T>(json: any, cls: ClassType<T>): T[] {
   const array = (json as Object[]) || [];
   const data = array.map(x => plainToClassFromExist(new cls(), x));

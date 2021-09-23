@@ -1,12 +1,17 @@
 [
   {
     "id": 1,
-    "name": "Title 1",
+    "name": "Post 1",
     "description": "Description 1"
   },
   {
     "id": 2,
-    "name": "Title 2",
+    "name": "Post 2",
     "description": "Description 2"
+  },
+  {
+    "id": 3,
+    "name": "Post 3",
+    "description": "Description 3"
   }
 ]

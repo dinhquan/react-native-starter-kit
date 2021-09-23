@@ -71,7 +71,13 @@
       "node"
     ],
     "testPathIgnorePatterns": [
-      "__tests__/__helpers"
+      "__tests__/utils"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/__tests__/utils/",
+      "/core/network/",
+      "/core/common"
     ]
   },
   "browserslist": {

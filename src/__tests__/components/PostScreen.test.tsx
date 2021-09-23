@@ -2,20 +2,19 @@ import React from 'react';
 import {render, waitFor} from '@testing-library/react-native';
 import PostScreen from 'app/components/post/PostScreen';
 import * as usePostScreen from 'app/components/post/usePostScreen';
-import {mockState} from '../utils/mockStore';
 import Post from 'core/models/post/Post';
+import {jsonToClasses} from 'core/common/classTransformer';
+import mockData from '../utils/mockData';
 
 function renderComponent() {
   return render(<PostScreen />);
 }
 
-const mockData = {
-  posts: mockState.posts.data as Post[],
-};
-
 describe('Tests for <PostScreen />', () => {
   beforeAll(() => {
-    jest.spyOn(usePostScreen, 'default').mockReturnValue(mockData);
+    jest.spyOn(usePostScreen, 'default').mockReturnValue({
+      posts: jsonToClasses(mockData.postsWithLength2, Post),
+    });
   });
 
   test('Renders correctly', () => {
