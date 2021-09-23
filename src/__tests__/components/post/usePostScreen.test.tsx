@@ -1,8 +1,8 @@
 import usePostScreen from 'app/components/post/usePostScreen';
 import {Provider} from 'react-redux';
 import {renderHook} from '@testing-library/react-hooks';
-import {createTestStore} from '../utils/testUtils';
-import mockData from '../utils/mockData';
+import {createTestStore} from '../../utils/testUtils';
+import mockData from '../../utils/mockData';
 import React from 'react';
 import postService from 'core/network/services/postService';
 

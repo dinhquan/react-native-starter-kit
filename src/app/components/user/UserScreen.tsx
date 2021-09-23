@@ -1,25 +1,16 @@
-import {signIn, userSelector} from 'core/redux/slices/userSlice';
 import React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
 import styled from 'styled-components/native';
 import BaseText from 'app/components/base/BaseText';
 import {T, t} from 'app/theme/Localization';
-import {SignInCredential} from 'core/network/services/userService';
+import useUserScreen from './useUserScreen';
 
 function UserScreen() {
-  const dispatch = useDispatch();
-
-  function onSignIn() {
-    const credential: SignInCredential = {username: 'username', password: 'Test1234'};
-    dispatch(signIn(credential));
-  }
-
-  const {data: user} = useSelector(userSelector);
-
+  const {user, hasSignedIn, onSignIn} = useUserScreen({username: 'quan', password: 'quan123'});
   return (
     <Container>
-      <BaseText>{`${t(T.user)}: ${user?.getFullName() || ''}`}</BaseText>
-      <Button onPress={onSignIn}>
+      <BaseText testID="sign-in-label">{hasSignedIn ? 'Signed In' : 'Not Signed In'}</BaseText>
+      {hasSignedIn && <BaseText testID="name-label">{user!.getFullName()}</BaseText>}
+      <Button onPress={onSignIn} testID="sign-in-button">
         <BaseText>{t(T.signIn)}</BaseText>
       </Button>
     </Container>
