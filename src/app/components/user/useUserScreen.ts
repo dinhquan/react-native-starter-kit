@@ -10,6 +10,7 @@ function useUserScreen(credential: SignInCredential) {
   };
 
   const {data: user} = useSelector(userSelector);
+
   return {
     user: user,
     hasSignedIn: user !== undefined,

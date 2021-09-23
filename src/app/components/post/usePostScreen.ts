@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 
 function usePostScreen() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getPosts());
   }, []);

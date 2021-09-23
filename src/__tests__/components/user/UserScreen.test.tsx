@@ -1,23 +1,16 @@
-import React from 'react';
-import {render, fireEvent, waitFor} from '@testing-library/react-native';
-import PostScreen from 'app/components/post/PostScreen';
-import * as usePostScreen from 'app/components/post/usePostScreen';
-import Post from 'core/models/post/Post';
-import {jsonToClass, jsonToClasses} from 'core/common/classTransformer';
-import mockData from '../../utils/mockData';
+import {fireEvent, render} from '@testing-library/react-native';
 import UserScreen from 'app/components/user/UserScreen';
 import * as useUserScreen from 'app/components/user/useUserScreen';
+import {jsonToClass} from 'core/common/classTransformer';
 import User from 'core/models/user/User';
+import React from 'react';
+import mockData from '../../utils/mockData';
 
 function renderComponent() {
   return render(<UserScreen />);
 }
 
 describe('Tests for UserScreen', () => {
-  test('Renders correctly', () => {
-    renderComponent();
-  });
-
   test('Not sign in yet', async () => {
     const signInMock = jest.fn();
     jest.spyOn(useUserScreen, 'default').mockReturnValue({

@@ -3,6 +3,7 @@ import styled from 'styled-components/native';
 import BaseText from 'app/components/base/BaseText';
 import {T, t} from 'app/theme/Localization';
 import useUserScreen from './useUserScreen';
+import Colors from 'app/theme/Colors';
 
 function UserScreen() {
   const {user, hasSignedIn, onSignIn} = useUserScreen({username: 'quan', password: 'quan123'});
@@ -21,8 +22,7 @@ export default React.memo(UserScreen);
 
 const Container = styled.View`
   flex: 1;
-  justify-content: center;
-  align-self: center;
+  background-color: ${Colors.Background};
 `;
 
 const Button = styled.TouchableOpacity`
@@ -31,4 +31,5 @@ const Button = styled.TouchableOpacity`
   border-radius: 8px;
   padding: 10px 10px;
   margin-top: 10px;
+  width: 100px;
 `;

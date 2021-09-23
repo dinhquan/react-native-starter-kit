@@ -17,10 +17,6 @@ describe('Tests for PostScreen', () => {
     });
   });
 
-  test('Renders correctly', () => {
-    renderComponent();
-  });
-
   test('Display the post title', async () => {
     const {getByText} = renderComponent();
     await waitFor(() => expect(getByText('Posts')));
