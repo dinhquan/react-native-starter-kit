@@ -3,7 +3,6 @@ import {renderHook, act} from '@testing-library/react-hooks';
 import {createTestStore} from '../../utils/testUtils';
 import mockData from '../../utils/mockData';
 import React from 'react';
-import postService from 'core/network/services/postService';
 import useUserScreen from 'app/components/user/useUserScreen';
 import userService, {SignInCredential} from 'core/network/services/userService';
 

@@ -1,22 +1,23 @@
-import userService from 'core/network/services/userService';
-import {createTestStore} from '../utils/testUtils';
 import mockData from '../utils/mockData';
-import {signIn} from 'core/redux/slices/userSlice';
+import {signIn, userSlice} from 'core/redux/slices/userSlice';
+import {initialState} from 'core/common/reduxCommon';
+
+const credential = {username: 'quan', password: 'quan123'};
 
 describe('Tests for userSlice', () => {
-  beforeAll(() => {
-    jest.spyOn(userService, 'signIn').mockReturnValue(Promise.resolve(mockData.user1));
+  test('sign in fulfilled', () => {
+    const action = signIn.fulfilled(mockData.user1, '', credential);
+    const state = userSlice.reducer(initialState(), action);
+    expect(state.data).toBe(mockData.user1);
+    expect(state.isFetching).toBe(false);
+    expect(state.success).toBe(true);
   });
 
-  test('getPosts should store correct value', async () => {
-    const store = createTestStore();
-    const credential = {username: 'quan', password: 'quan123'};
-    await store.dispatch(signIn(credential));
-    const posts = store.getState().user.data;
-    expect(posts).toEqual(mockData.user1);
-  });
-
-  afterAll(() => {
-    jest.clearAllMocks();
+  test('sign in rejected', () => {
+    const action = signIn.rejected(null, '', credential);
+    const state = userSlice.reducer(initialState(), action);
+    expect(state.data).toBeFalsy();
+    expect(state.isFetching).toBe(false);
+    expect(state.success).toBe(false);
   });
 });
