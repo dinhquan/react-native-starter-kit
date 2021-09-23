@@ -1,23 +1,24 @@
 import React from 'react';
 import {render, waitFor} from '@testing-library/react-native';
-import {Provider} from 'react-redux';
-import createMockingStore from '../__helpers/mockStore';
 import PostScreen from 'app/components/post/PostScreen';
-import {clearMocks, mockUseDispatch} from '../__helpers/mockHooks';
+import * as usePostScreen from 'app/components/post/usePostScreen';
+import {mockState} from '../__helpers/mockStore';
+import Post from 'core/models/post/Post';
 
-const renderComponent = () =>
-  render(
-    <Provider store={createMockingStore()}>
-      <PostScreen />
-    </Provider>,
-  );
+function renderComponent() {
+  return render(<PostScreen />);
+}
+
+const mockData = {
+  posts: mockState.posts.data as Post[],
+};
 
 describe('Tests for <PostScreen />', () => {
   beforeAll(() => {
-    mockUseDispatch();
+    jest.spyOn(usePostScreen, 'default').mockReturnValue(mockData);
   });
 
-  test('render without crashing', () => {
+  test('Renders correctly', () => {
     renderComponent();
   });
 
@@ -35,6 +36,6 @@ describe('Tests for <PostScreen />', () => {
   });
 
   afterAll(() => {
-    clearMocks();
+    jest.clearAllMocks();
   });
 });

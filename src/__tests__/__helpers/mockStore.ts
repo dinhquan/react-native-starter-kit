@@ -2,7 +2,7 @@ import {configureStore} from '@reduxjs/toolkit';
 import {ReduxStatus} from 'core/common/reduxCommon';
 import rootReducer, {RootState} from 'core/redux/rootReducer';
 
-export const initialTestState: RootState = {
+export const mockState: RootState = {
   posts: {
     isFetching: false,
     status: ReduxStatus.None,
@@ -34,11 +34,11 @@ export const initialTestState: RootState = {
   },
 };
 
-const createMockingStore = () =>
+const createMockStore = () =>
   configureStore({
     reducer: rootReducer,
     // @ts-ignore
-    preloadedState: initialTestState,
+    preloadedState: mockState,
   });
 
-export default createMockingStore;
+export default createMockStore;
