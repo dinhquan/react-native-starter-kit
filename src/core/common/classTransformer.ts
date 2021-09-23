@@ -44,7 +44,8 @@ export function transformClassesFromExist<T>(
   cls: ClassType<T>,
 ): GenericState<T[] | undefined> {
   const array = (state?.data as Object[]) || [];
-  const data = array.map(x => plainToClassFromExist(new cls(), x));
+  const data =
+    state?.data === undefined ? undefined : array.map(x => plainToClassFromExist(new cls(), x));
   return {
     ...state,
     data: data,

@@ -9,7 +9,6 @@ function usePostScreen() {
   }, []);
 
   const {data: posts} = useSelector(postsSelector);
-
   return {
     posts: posts ?? [],
   };
