@@ -73,13 +73,22 @@
     "testPathIgnorePatterns": [
       "__tests__/utils"
     ],
+    "collectCoverageFrom": ["src/**/*.{ts,js,tsx,jsx}"],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/__tests__/utils/",
       "/core/network/",
       "/core/common/",
+      "/core/redux/store.ts",
+      "/app/common/",
       "/app/theme/",
-      "/app/components/base/"
+      "/app/navigation/",
+      "/app/components/RootView.tsx",
+      "/app/components/stacks/",
+      "/src/index.js", "/src/App.tsx", 
+      "/src/react-app-env.d.ts", 
+      "/src/service-worker.ts",
+      "/src/serviceWorkerRegistration.ts"
     ]
   },
   "browserslist": {
