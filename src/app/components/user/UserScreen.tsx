@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import BaseText from 'app/components/base/BaseText';
+import {Text} from '../base';
 import {T, t} from 'app/theme/Localization';
 import useUserScreen from './useUserScreen';
 import Colors from 'app/theme/Colors';
@@ -9,10 +9,10 @@ function UserScreen() {
   const {user, hasSignedIn, onSignIn} = useUserScreen({username: 'quan', password: 'quan123'});
   return (
     <Container>
-      <BaseText testID="sign-in-label">{hasSignedIn ? 'Signed In' : 'Not Signed In'}</BaseText>
-      {hasSignedIn && <BaseText testID="name-label">{user!.getFullName()}</BaseText>}
+      <Text testID="sign-in-label">{hasSignedIn ? 'Signed In' : 'Not Signed In'}</Text>
+      {hasSignedIn && <Text testID="name-label">{user!.getFullName()}</Text>}
       <Button onPress={onSignIn} testID="sign-in-button">
-        <BaseText>{t(T.signIn)}</BaseText>
+        <Text>{t(T.signIn)}</Text>
       </Button>
     </Container>
   );
