@@ -78,7 +78,8 @@
       "/__tests__/utils/",
       "/core/network/",
       "/core/common/",
-      "/app/theme/"
+      "/app/theme/",
+      "/app/components/base/"
     ]
   },
   "browserslist": {
