@@ -5,7 +5,7 @@ interface Props extends TextProps {
   children?: any;
 }
 
-function BaseText({children, style, ...rest}: Props) {
+function Text({children, style, ...rest}: Props) {
   return (
     <RNText style={style} allowFontScaling={false} {...rest}>
       {children}
@@ -13,4 +13,4 @@ function BaseText({children, style, ...rest}: Props) {
   );
 }
 
-export default BaseText;
+export default Text;
